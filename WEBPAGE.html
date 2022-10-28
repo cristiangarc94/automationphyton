@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <h1>Encabezado de primer nivel</h1>
+        ...
+        <h6>Encabezado de nivel 6</h6>
+        <ol>
+            <li id="Lista1_item1">item 1 de lista ordenada</li>
+            <li>item 2 de lista ordenada</li>
+        </ol>
+        <ul>
+            <li class="Establecen relacion con css: Estilos">item 1 de lista ordenada</li>
+            <li>item 2 de lista ordenada</li>
+        </ul>
+        <a id="enlace" href="http://www.google.es">Enlaces</a>
+        <div>Panel que contiene otros elementos, con fines organizativos</div>
+        <form>
+            <input name="contraseña" type="checkbox">
+            <button name="btn_cancelar"> Texto del boton</button>
+        </form>
+        <svg>Grafico vectorial</svg>
+        <p>
+            <span>Equivalente a un div, pero dentro de un parrafo</span>
+        </p>
+        <input>
+
+
+    </body>
+</html>
+
+
+XPATH:
+nombres de elementos los separamos
+    . por una barra   /: eso significa que hay una relacion Padre e hijo
+ejemplo:
+div/ -> busca un parrafo que este dentro de un div
+
+    . por dos barras //: relacion de ancestro
+ejemplo:
+div//p -> busca un parrafo que donde sea que esté por arriba en la jerarquia tenga un div
+
+
+/html/body/form/input -> en este caso solo hay 1 elemento
+/html//input -> en este caso da todos los inputs que haya(2)
+//input -> igual que el anterior
+
+Detras de los nombres podemos poner entre corchetes (tal que):
+ - numero: que puede haber varios, pero yo elijo solamente uno
+                //ul/li buscame items de lista donde quiera que este esa lista desordenada
+                //ul/li[1] dame el primero
+                //ul/li[2] dame el segundo
+
+ - expresiones:
+        contains(text(),'VALOR')
+            //svg[contains(text(),'Grafico')] # que contenga ese nombre
+            //svg[text()=='Grafico'] # que sea exactamente ese nombre
+
+@-> habla de los atributos de un elemento
+    //a[@id='contraseña']
+# significa dame un enlace de tal manera que su atributo id sea igual a un determinado valor
+
